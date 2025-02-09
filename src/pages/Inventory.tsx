@@ -10,23 +10,30 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Package, AlertTriangle, DollarSign, ArrowDownUp, Boxes } from "lucide-react";
+import { Package, AlertTriangle, DollarSign, ArrowDownUp, Boxes, Info } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const mockInventoryData = [
   {
     id: 1,
     item: "Asphalt Shingles",
+    brand: "GAF",
+    category: "Roofing Materials",
     quantity: 1500,
-    unit: "pieces",
-    unitPrice: 15.99,
+    unit: "bundles",
+    unitPrice: 35.99,
     status: "In Stock",
     reorderPoint: 500,
     location: "Warehouse A",
     lastUpdated: "2024-03-15",
+    warranty: "30 years",
+    specifications: "Timberline HDZ, Weathered Wood color"
   },
   {
     id: 2,
     item: "Metal Roofing Panels",
+    brand: "Metal Sales",
+    category: "Roofing Materials",
     quantity: 200,
     unit: "sheets",
     unitPrice: 45.50,
@@ -34,10 +41,14 @@ const mockInventoryData = [
     reorderPoint: 250,
     location: "Warehouse B",
     lastUpdated: "2024-03-14",
+    warranty: "40 years",
+    specifications: "24 gauge, Standing Seam"
   },
   {
     id: 3,
     item: "Roofing Nails",
+    brand: "Grip-Rite",
+    category: "Fasteners",
     quantity: 25000,
     unit: "pieces",
     unitPrice: 0.10,
@@ -45,10 +56,14 @@ const mockInventoryData = [
     reorderPoint: 10000,
     location: "Warehouse A",
     lastUpdated: "2024-03-13",
+    warranty: "N/A",
+    specifications: "1-1/4 inch, Hot-dipped galvanized"
   },
   {
     id: 4,
-    item: "Underlayment Rolls",
+    item: "Underlayment",
+    brand: "CertainTeed",
+    category: "Roofing Materials",
     quantity: 45,
     unit: "rolls",
     unitPrice: 89.99,
@@ -56,10 +71,14 @@ const mockInventoryData = [
     reorderPoint: 30,
     location: "Warehouse A",
     lastUpdated: "2024-03-12",
+    warranty: "15 years",
+    specifications: "DiamondDeck® Synthetic"
   },
   {
     id: 5,
     item: "Flashing Material",
+    brand: "Custom-Bilt",
+    category: "Accessories",
     quantity: 100,
     unit: "pieces",
     unitPrice: 12.75,
@@ -67,7 +86,24 @@ const mockInventoryData = [
     reorderPoint: 150,
     location: "Warehouse B",
     lastUpdated: "2024-03-11",
+    warranty: "10 years",
+    specifications: "Aluminum Step Flashing"
   },
+  {
+    id: 6,
+    item: "Ridge Vent",
+    brand: "Air Vent Inc",
+    category: "Ventilation",
+    quantity: 75,
+    unit: "pieces",
+    unitPrice: 8.99,
+    status: "In Stock",
+    reorderPoint: 50,
+    location: "Warehouse A",
+    lastUpdated: "2024-03-10",
+    warranty: "5 years",
+    specifications: "ShingleVent II"
+  }
 ];
 
 const Inventory = () => {
@@ -165,12 +201,15 @@ const Inventory = () => {
                   <TableHeader>
                     <TableRow>
                       <TableHead>Item</TableHead>
+                      <TableHead>Brand</TableHead>
+                      <TableHead>Category</TableHead>
                       <TableHead>Quantity</TableHead>
                       <TableHead>Unit</TableHead>
                       <TableHead>Unit Price</TableHead>
                       <TableHead>Total Value</TableHead>
                       <TableHead>Status</TableHead>
                       <TableHead>Location</TableHead>
+                      <TableHead>Specifications</TableHead>
                       <TableHead>Last Updated</TableHead>
                     </TableRow>
                   </TableHeader>
@@ -178,6 +217,8 @@ const Inventory = () => {
                     {mockInventoryData.map((item) => (
                       <TableRow key={item.id}>
                         <TableCell className="font-medium">{item.item}</TableCell>
+                        <TableCell>{item.brand}</TableCell>
+                        <TableCell>{item.category}</TableCell>
                         <TableCell>{item.quantity}</TableCell>
                         <TableCell>{item.unit}</TableCell>
                         <TableCell>${item.unitPrice.toFixed(2)}</TableCell>
@@ -196,6 +237,22 @@ const Inventory = () => {
                           </span>
                         </TableCell>
                         <TableCell>{item.location}</TableCell>
+                        <TableCell>
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger>
+                                <Info className="h-4 w-4 text-muted-foreground" />
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p className="text-sm">
+                                  {item.specifications}
+                                  <br />
+                                  Warranty: {item.warranty}
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </TableCell>
                         <TableCell>{item.lastUpdated}</TableCell>
                       </TableRow>
                     ))}
