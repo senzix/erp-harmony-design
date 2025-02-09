@@ -35,7 +35,7 @@ export function AppSidebar() {
             <SidebarMenu>
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.label}>
-                  <SidebarMenuButton asChild active={location.pathname === item.href}>
+                  <SidebarMenuButton asChild data-state={location.pathname === item.href ? "active" : "inactive"}>
                     <Link to={item.href} className="flex items-center gap-3 px-3 py-2">
                       <item.icon className="h-5 w-5" />
                       <span>{item.label}</span>
