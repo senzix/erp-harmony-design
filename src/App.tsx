@@ -11,6 +11,7 @@ import Inventory from "./pages/Inventory";
 import Schedule from "./pages/Schedule";
 import Settings from "./pages/Settings";
 import Payroll from "./pages/Payroll";
+import Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/projects" element={<Projects />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/employees" element={<Employees />} />
           <Route path="/inventory" element={<Inventory />} />

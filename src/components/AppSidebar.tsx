@@ -1,5 +1,5 @@
 
-import { Home, BarChart3, Users, Settings, Package, Calendar } from "lucide-react";
+import { Home, BarChart3, Users, Settings, Package, Calendar, Building2, DollarSign } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
 import {
@@ -15,10 +15,12 @@ import {
 
 const menuItems = [
   { icon: Home, label: "Dashboard", href: "/" },
+  { icon: Building2, label: "Projects", href: "/projects" },
   { icon: BarChart3, label: "Analytics", href: "/analytics" },
   { icon: Users, label: "Employees", href: "/employees" },
   { icon: Package, label: "Inventory", href: "/inventory" },
   { icon: Calendar, label: "Schedule", href: "/schedule" },
+  { icon: DollarSign, label: "Payroll", href: "/payroll" },
   { icon: Settings, label: "Settings", href: "/settings" },
 ];
 
