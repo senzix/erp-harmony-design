@@ -1,5 +1,4 @@
-
-import { Home, BarChart3, Users, Settings, Package, Calendar, Building2, DollarSign, UserCircle } from "lucide-react";
+import { Home, BarChart3, Users, FileText, Settings, Package, Calendar, Building2, DollarSign, UserCircle, ClipboardCheck, Clock, Wrench, ShieldCheck, Building, Receipt } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
 import {
@@ -16,13 +15,20 @@ import {
 const menuItems = [
   { icon: Home, label: "Dashboard", href: "/" },
   { icon: Building2, label: "Projects", href: "/projects" },
+  { icon: FileText, label: "Estimates", href: "/estimates" },
   { icon: BarChart3, label: "Analytics", href: "/analytics" },
   { icon: Users, label: "Employees", href: "/employees" },
   { icon: UserCircle, label: "Customers", href: "/customers" },
   { icon: Package, label: "Inventory", href: "/inventory" },
   { icon: Calendar, label: "Schedule", href: "/schedule" },
   { icon: DollarSign, label: "Payroll", href: "/payroll" },
-  { icon: Settings, label: "Settings", href: "/settings" },
+  { icon: ClipboardCheck, label: "Work Orders", href: "/work-orders" },
+  { icon: Clock, label: "Time Tracking", href: "/time-tracking" },
+  { icon: Wrench, label: "Equipment", href: "/equipment" },
+  { icon: ShieldCheck, label: "Safety", href: "/safety" },
+  { icon: Building, label: "Suppliers", href: "/suppliers" },
+  { icon: Receipt, label: "invoicing" , href: "/invoicing"},
+  { icon: Settings, label: "Settings", href: "/settings" }
 ];
 
 export function AppSidebar() {

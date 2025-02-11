@@ -1,4 +1,3 @@
-
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { Card } from "@/components/ui/card";
@@ -92,7 +91,7 @@ const Payroll = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold">Total Payroll</h3>
-                    <p className="text-2xl font-bold">${totalPayroll.toFixed(2)}</p>
+                    <p className="text-2xl font-bold">₹{totalPayroll.toLocaleString()}</p>
                   </div>
                 </div>
               </Card>
@@ -128,7 +127,7 @@ const Payroll = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold">Avg. Hourly Rate</h3>
-                    <p className="text-2xl font-bold">${averageRate.toFixed(2)}</p>
+                    <p className="text-2xl font-bold">₹{averageRate.toFixed(2)}</p>
                   </div>
                 </div>
               </Card>
@@ -158,11 +157,11 @@ const Payroll = () => {
                       <TableRow key={employee.id}>
                         <TableCell className="font-medium">{employee.employeeName}</TableCell>
                         <TableCell>{employee.position}</TableCell>
-                        <TableCell>${employee.hourlyRate.toFixed(2)}</TableCell>
+                        <TableCell>₹{employee.hourlyRate.toFixed(2)}/hour</TableCell>
                         <TableCell>{employee.hoursWorked}</TableCell>
                         <TableCell>{employee.overtime}</TableCell>
-                        <TableCell>${employee.deductions.toFixed(2)}</TableCell>
-                        <TableCell>${employee.netPay.toFixed(2)}</TableCell>
+                        <TableCell>₹{employee.deductions.toFixed(2)}</TableCell>
+                        <TableCell>₹{employee.netPay.toFixed(2)}</TableCell>
                         <TableCell>
                           <span
                             className={`px-2 py-1 rounded-full text-xs font-medium ${
