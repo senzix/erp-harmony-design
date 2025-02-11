@@ -1,4 +1,3 @@
-
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { Card } from "@/components/ui/card";
@@ -10,7 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Package, AlertTriangle, DollarSign, ArrowDownUp, Boxes, Info } from "lucide-react";
+import { Package, AlertTriangle, IndianRupee, ArrowDownUp, Boxes, Info } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const mockInventoryData = [
@@ -21,7 +20,7 @@ const mockInventoryData = [
     category: "Roofing Materials",
     quantity: 1500,
     unit: "bundles",
-    unitPrice: 35.99,
+    unitPrice: 279.99,
     status: "In Stock",
     reorderPoint: 500,
     location: "Warehouse A",
@@ -36,7 +35,7 @@ const mockInventoryData = [
     category: "Roofing Materials",
     quantity: 200,
     unit: "sheets",
-    unitPrice: 45.50,
+    unitPrice: 375.50,
     status: "Low Stock",
     reorderPoint: 250,
     location: "Warehouse B",
@@ -51,7 +50,7 @@ const mockInventoryData = [
     category: "Fasteners",
     quantity: 25000,
     unit: "pieces",
-    unitPrice: 0.10,
+    unitPrice: 0.85,
     status: "In Stock",
     reorderPoint: 10000,
     location: "Warehouse A",
@@ -66,7 +65,7 @@ const mockInventoryData = [
     category: "Roofing Materials",
     quantity: 45,
     unit: "rolls",
-    unitPrice: 89.99,
+    unitPrice: 749.99,
     status: "In Stock",
     reorderPoint: 30,
     location: "Warehouse A",
@@ -81,7 +80,7 @@ const mockInventoryData = [
     category: "Accessories",
     quantity: 100,
     unit: "pieces",
-    unitPrice: 12.75,
+    unitPrice: 99.75,
     status: "Critical",
     reorderPoint: 150,
     location: "Warehouse B",
@@ -96,7 +95,7 @@ const mockInventoryData = [
     category: "Ventilation",
     quantity: 75,
     unit: "pieces",
-    unitPrice: 8.99,
+    unitPrice: 74.99,
     status: "In Stock",
     reorderPoint: 50,
     location: "Warehouse A",
@@ -166,11 +165,11 @@ const Inventory = () => {
               <Card className="p-6 glass-card animate-in">
                 <div className="flex items-center gap-4">
                   <div className="p-3 bg-green-100 rounded-lg">
-                    <DollarSign className="h-6 w-6 text-green-600" />
+                    <IndianRupee className="h-6 w-6 text-green-600" />
                   </div>
                   <div>
                     <h3 className="font-semibold">Total Value</h3>
-                    <p className="text-2xl font-bold">${totalValue.toFixed(2)}</p>
+                    <p className="text-2xl font-bold">₹{totalValue.toLocaleString('en-IN')}</p>
                   </div>
                 </div>
               </Card>
@@ -221,8 +220,8 @@ const Inventory = () => {
                         <TableCell>{item.category}</TableCell>
                         <TableCell>{item.quantity}</TableCell>
                         <TableCell>{item.unit}</TableCell>
-                        <TableCell>${item.unitPrice.toFixed(2)}</TableCell>
-                        <TableCell>${(item.quantity * item.unitPrice).toFixed(2)}</TableCell>
+                        <TableCell>₹{item.unitPrice.toLocaleString('en-IN')}</TableCell>
+                        <TableCell>₹{(item.quantity * item.unitPrice).toLocaleString('en-IN')}</TableCell>
                         <TableCell>
                           <span
                             className={`px-2 py-1 rounded-full text-xs font-medium ${
