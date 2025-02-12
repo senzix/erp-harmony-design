@@ -160,7 +160,7 @@ const EquipmentDetails = ({ equipment }: { equipment: Equipment }) => {
                 <TableCell>{record.type}</TableCell>
                 <TableCell>{record.description}</TableCell>
                 <TableCell>{record.technician}</TableCell>
-                <TableCell>${record.cost.toFixed(2)}</TableCell>
+                <TableCell>₹{record.cost.toFixed(2)}</TableCell>
               </TableRow>
             ))}
           </TableBody>

@@ -98,8 +98,8 @@ const EstimateDetails = ({ estimate }: { estimate: Estimate }) => {
               <TableRow key={index}>
                 <TableCell>{material.item}</TableCell>
                 <TableCell>{material.quantity}</TableCell>
-                <TableCell>${material.unitPrice.toFixed(2)}</TableCell>
-                <TableCell>${(material.quantity * material.unitPrice).toFixed(2)}</TableCell>
+                <TableCell>₹{material.unitPrice.toFixed(2)}</TableCell>
+                <TableCell>₹{(material.quantity * material.unitPrice).toFixed(2)}</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -109,15 +109,15 @@ const EstimateDetails = ({ estimate }: { estimate: Estimate }) => {
       <div className="grid grid-cols-2 gap-4">
         <div>
           <h3 className="font-medium">Labor</h3>
-          <p>{estimate.labor.hours} hours @ ${estimate.labor.rate}/hr</p>
-          <p className="font-medium mt-1">Total: ${laborCost.toFixed(2)}</p>
+          <p>{estimate.labor.hours} hours @ ₹{estimate.labor.rate}/hr</p>
+          <p className="font-medium mt-1">Total: ₹{laborCost.toFixed(2)}</p>
         </div>
         <div>
           <h3 className="font-medium">Summary</h3>
           <div className="space-y-1">
-            <p>Materials: ${materialsCost.toFixed(2)}</p>
-            <p>Labor: ${laborCost.toFixed(2)}</p>
-            <p className="font-medium">Total: ${estimate.amount.toFixed(2)}</p>
+            <p>Materials: ₹{materialsCost.toFixed(2)}</p>
+            <p>Labor: ₹{laborCost.toFixed(2)}</p>
+            <p className="font-medium">Total: ₹{estimate.amount.toFixed(2)}</p>
           </div>
         </div>
       </div>
@@ -200,7 +200,7 @@ const Estimates = () => {
                         <TableCell>{estimate.customerName}</TableCell>
                         <TableCell>{estimate.projectTitle}</TableCell>
                         <TableCell>{new Date(estimate.date).toLocaleDateString()}</TableCell>
-                        <TableCell>${estimate.amount.toFixed(2)}</TableCell>
+                        <TableCell>₹{estimate.amount.toFixed(2)}</TableCell>
                         <TableCell>
                           <Badge className={getStatusColor(estimate.status)}>
                             {estimate.status}
